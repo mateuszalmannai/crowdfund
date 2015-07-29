@@ -1,4 +1,3 @@
-
 describe 'Editing a project' do
 
   it "updates the project and shows the project' s update details" do
@@ -14,5 +13,13 @@ describe 'Editing a project' do
     expect(find_field('Description').value).to eq(project.description)
     expect(find_field('Target pledge amount').value).to eq("100")
     expect(find_field('Website').value).to eq(project.website)
+
+    fill_in 'Name', with: "Updated Project Name"
+
+    click_button 'Update Project'
+
+    expect(current_path).to eq(project_path(project))
+
+    expect(page).to have_text('Updated Project Name')
   end
 end
