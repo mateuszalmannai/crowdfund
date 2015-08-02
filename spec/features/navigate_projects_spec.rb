@@ -9,7 +9,7 @@ describe "Navigating projects" do
     expect(current_path).to eq(projects_path)
   end
 
-  it "allows navigation from the detail page to the listing page" do
+  it "allows navigation from the listing page to the detail page" do
     project = Project.create(project_attributes)
 
     visit projects_url

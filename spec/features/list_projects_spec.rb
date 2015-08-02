@@ -34,4 +34,10 @@ describe "Viewing the list of projects" do
     expect(page).to have_text("1 day remaining")
     expect(page).to have_text(projectA.website)
   end
+
+  it "displays the footer partial" do
+    setup_new_project
+
+    expect(page).to have_text("The Pragmatic Studio")
+  end
 end

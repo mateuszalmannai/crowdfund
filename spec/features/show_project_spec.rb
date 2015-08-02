@@ -25,4 +25,10 @@ describe "Viewing an individual project" do
 
     expect(page).to have_text("All Done!")
   end
+
+  it "displays the footer partial" do
+    setup_new_project
+
+    expect(page).to have_text("The Pragmatic Studio")
+  end
 end
