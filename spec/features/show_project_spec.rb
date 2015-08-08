@@ -27,7 +27,9 @@ describe "Viewing an individual project" do
   end
 
   it "displays the footer partial" do
-    setup_new_project
+    project = Project.create(project_attributes)
+
+    visit project_url(project)
 
     expect(page).to have_text("The Pragmatic Studio")
   end

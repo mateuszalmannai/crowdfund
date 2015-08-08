@@ -16,6 +16,8 @@ describe 'Editing a project' do
 
     click_link 'Cancel'
 
+    expect(current_path).to eq(projects_path)
+
     expect(page).to_not have_text('Updated Project Name')
   end
 
