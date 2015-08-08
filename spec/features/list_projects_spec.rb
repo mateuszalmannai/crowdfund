@@ -36,8 +36,20 @@ describe "Viewing the list of projects" do
   end
 
   it "displays the footer partial" do
-    setup_new_project
+    Project.create(project_attributes)
+
+    visit projects_url
 
     expect(page).to have_text("The Pragmatic Studio")
   end
+
+  it "does not show a project that is no longer accepting pledges" do
+    project = Project.new(project_attributes(pledging_ends_on: 1.day.ago))
+    project.save
+
+    visit projects_path
+
+    expect(page).not_to have_text(project.name)
+  end
+
 end
