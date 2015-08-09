@@ -5,6 +5,7 @@
 <% @projects.each do |project| %>
   <article>
     <header>
+      <%= image_tag(project.image_file_name) %>
       <h2><%= link_to project.name, project %></h2>
     </header>
     <p>
