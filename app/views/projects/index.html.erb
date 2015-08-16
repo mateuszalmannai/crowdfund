@@ -1,9 +1,9 @@
 <h1><%= pluralize(@projects.size, 'Project')%></h1>
 
 <% @projects.each do |project| %>
-  <article>
+  <article class="project">
     <header>
-      <%= image_tag(project.image_file_name) %>
+      <%= image_for(project) %>
       <h2><%= link_to project.name, project %></h2>
     </header>
     <p>
