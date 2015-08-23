@@ -45,9 +45,9 @@ def setup_new_project
   fill_in "Description", with: "New Project Description"
   fill_in "Target pledge amount", with: "150.00"
   select (Time.now.year + 1).to_s, :from => "project_pledging_ends_on_1i"
-  fill_in "Website", with: "www.website.com"
+  fill_in "Website", with: "http://www.website.com"
   fill_in "Team members", with: "The team members"
-  fill_in "Image file name", with: "project.png"
+  fill_in "Image Filename", with: "project.png"
 end
 
 
