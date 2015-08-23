@@ -33,10 +33,9 @@ class ProjectsController < ApplicationController
     redirect_to projects_url
   end
 
-  private
+private
 
   def project_params
-    params.require(:project)
-        .permit(:name, :description, :target_pledge_amount, :pledging_ends_on, :website, :team_members, :image_file_name)
+    params.require(:project).permit(:name, :description, :pledging_ends_on, :target_pledge_amount, :website, :team_members, :image_file_name)
   end
 end

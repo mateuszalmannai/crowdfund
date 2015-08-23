@@ -1,4 +1,4 @@
-<article>
+<article id="project" class="project">
   <header>
     <%= image_for(@project) %>
     <h1><%= @project.name %></h1>
@@ -19,7 +19,12 @@
   <p>
     <%= @project.team_members %>
   </p>
+  <footer>
+    <nav>
+      <%= link_to "Edit", edit_project_path(@project), class: 'button' %>
+      <%= link_to "Delete", @project, 
+                  class: 'button', 
+                  method: :delete, data: { confirm: 'Are you sure?' } %>
+    </nav>
+  </footer>
 </article>
-
-<%= link_to "Edit", edit_project_path(@project) %> |
-<%= link_to "Delete", project_path(@project), method: :delete, data: {confirm: 'Are you sure?'} %>
