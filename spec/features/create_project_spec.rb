@@ -11,6 +11,7 @@ describe 'Creating a new project' do
     expect(page).to have_text('New Project Description')
     expect(page).to have_text('$150.00')
     expect(page).to have_text('www.website.com')
+    expect(page).to have_text('Project successfully created!')
   end
 
   it "does not save the project and goes to the listing page when 'Cancel' is pressed" do
