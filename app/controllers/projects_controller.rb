@@ -13,8 +13,11 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
-    @project.update(project_params)
-    redirect_to @project
+    if @project.update(project_params)
+      redirect_to @project
+    else
+      render :edit
+    end
   end
 
   def new
@@ -23,8 +26,11 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.save
-    redirect_to @project
+    if @project.save
+      redirect_to @project
+    else
+      render :new
+    end
   end
 
   def destroy
@@ -33,7 +39,7 @@ class ProjectsController < ApplicationController
     redirect_to projects_url
   end
 
-private
+  private
 
   def project_params
     params.require(:project).permit(:name, :description, :pledging_ends_on, :target_pledge_amount, :website, :team_members, :image_file_name)

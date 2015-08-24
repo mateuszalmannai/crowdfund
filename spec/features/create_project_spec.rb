@@ -26,6 +26,16 @@ describe 'Creating a new project' do
     expect(page).to_not have_text('www.website.com')
   end
 
+  it "does not save the project if it's invalid" do
+    visit new_project_url
+
+    expect {
+      click_button 'Create Project'
+    }.not_to change(Project, :count)
+
+    expect(page).to have_text('error')
+  end
+
   it "displays the footer partial" do
     setup_new_project
 
